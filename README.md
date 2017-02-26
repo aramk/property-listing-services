@@ -2,10 +2,17 @@
 
 ## Setup
 
-Set up an account at [http://developer.zoopla.com/member/register]() and set up an environment variable with the API key:
+Default configuration is in `src/config.js` and environment variables will override it.
 
-  export ZOOPLA_API_KEY=<key>
+If you need to use the Zoopla API, [set up an account](http://developer.zoopla.com/member/register) and set this environment variable with the API key:
 
-## Testing
+	export ZOOPLA_API_KEY=<key>
 
-  npm test
+## Tests
+
+The tests rely on the [mock server](https://github.com/aramk/zoopla-api-mock). Run this as a separate process.
+
+	npm test              # single execution
+	npm run test-watch    # re-execute on changes 
+
+If the test suite requires more data from the API, this mock should be extended.
