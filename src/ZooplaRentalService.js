@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const axios = require('axios');
-const q = require('q');
+const Q = require('q');
 
 const envConfig = require('./config');
 
@@ -19,25 +19,45 @@ class ZooplaRentalService {
     });
   }
 
-  getListings(options={}) {
-    _.defaults(options, {
+  // Returns a single page of listings.
+  getListings(params={}) {
+    _.defaults(params, {
       country: 'England',
       postcode: 'BR1',
       pageNumber: 1,
       pageSize: 100
     });
-    console.log('this.config.apiUrl', this.config.apiUrl);
     return axios.get(this.config.apiUrl, {
       params: {
         api_key: this.config.apiKey,
-        country: options.country,
-        postcode: options.postcode,
-        page_number: options.pageNumber,
-        page_size: options.pageSize
+        country: params.country,
+        postcode: params.postcode,
+        page_number: params.pageNumber,
+        page_size: params.pageSize
       }
-    });
+    }).then(response => response.data);
   }
 
+  // Returns all pages of listings for the given parameters.
+  getAllListings(params) {
+    return getAllListings.call(this, {params});
+  }
+
+}
+
+function getAllListings({ pageNumber=1, combinedResult={}, params } = {}) {
+  return this.getListings(_.defaults({pageNumber}, params)).then(result => {
+    if (combinedResult.listing) {
+      combinedResult.listing.push(...result.listing);
+    } else {
+      _.extend(combinedResult, result);
+    }
+    if (result.listing.length === 0) {
+      return combinedResult;
+    } else {
+      return getAllListings.call(this, {pageNumber: pageNumber + 1, combinedResult, params});
+    }
+  });
 }
 
 module.exports = ZooplaRentalService;

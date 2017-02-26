@@ -16,13 +16,12 @@ describe('ZooplaRentalService', () => {
     return service.getListings({
       postcode: 'BR2'
     }).then(result => {
-      expect(result.status).to.equal(200);
       // area_name has a space prefix from the API ¯\_(ツ)_/¯
-      expect(result.data.area_name).to.equal(' BR2');
-      expect(result.data.country).to.equal('England');
-      expect(result.data.result_count).to.equal(300);
-      expect(result.data.listing).to.have.length(100);
-      const listing = result.data.listing[0];
+      expect(result.area_name).to.equal(' BR2');
+      expect(result.country).to.equal('England');
+      expect(result.result_count).to.equal(300);
+      expect(result.listing).to.have.length(100);
+      const listing = result.listing[0];
       expect(listing).to.have.property('listing_id', '16067968');
     });
   });
@@ -32,13 +31,11 @@ describe('ZooplaRentalService', () => {
       postcode: 'BR2',
       pageNumber: 2
     }).then(result => {
-      expect(result.status).to.equal(200);
-      expect(result.data.area_name).to.equal(' BR2');
-      expect(result.data.country).to.equal('England');
-      expect(result.data.result_count).to.equal(300);
-      expect(result.data.listing).to.have.length(100);
-      const listing = result.data.listing[0];
-      expect(listing).to.have.property('listing_id', '42548994');
+      expect(result.area_name).to.equal(' BR2');
+      expect(result.country).to.equal('England');
+      expect(result.result_count).to.equal(300);
+      expect(result.listing).to.have.length(100);
+      expect(result.listing[0]).to.have.property('listing_id', '42548994');
     });
   });
 
@@ -47,11 +44,24 @@ describe('ZooplaRentalService', () => {
       postcode: 'BR2',
       pageNumber: 4
     }).then(result => {
-      expect(result.status).to.equal(200);
-      expect(result.data.area_name).to.equal(' BR2');
-      expect(result.data.country).to.equal('England');
-      expect(result.data.result_count).to.equal(300);
-      expect(result.data.listing).to.have.length(0);
+      expect(result.area_name).to.equal(' BR2');
+      expect(result.country).to.equal('England');
+      expect(result.result_count).to.equal(300);
+      expect(result.listing).to.have.length(0);
+    });
+  });
+
+  it('can request listings on all pages', () => {
+    return service.getAllListings({
+      postcode: 'BR2'
+    }).then(result => {
+      expect(result.area_name).to.equal(' BR2');
+      expect(result.country).to.equal('England');
+      expect(result.result_count).to.equal(300);
+      expect(result.listing).to.have.length(300);
+      expect(result.listing[0]).to.have.property('listing_id', '16067968');
+      expect(result.listing[100]).to.have.property('listing_id', '42548994');
+      expect(result.listing[299]).to.have.property('listing_id', '42403893');
     });
   });
 
