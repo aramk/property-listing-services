@@ -20,22 +20,22 @@ class ZooplaService {
   }
 
   // Returns a single page of listings.
+  // API Docs: http://developer.zoopla.com/docs/read/Property_listings
   getListings(params={}) {
     _.defaults(params, {
+      apiKey: this.config.apiKey,
       country: 'England',
       postcode: 'BR1',
       pageNumber: 1,
-      pageSize: 100
+      pageSize: 100,
     });
-    return axios.get(this.config.apiUrl, {
-      params: {
-        api_key: this.config.apiKey,
-        country: params.country,
-        postcode: params.postcode,
-        page_number: params.pageNumber,
-        page_size: params.pageSize
-      }
-    }).then(response => response.data);
+    // API uses snake_case notation for all parameters.
+    const apiParams = {};
+    _.each(params, (value, key) => apiParams[_.snakeCase(key)] = value);
+    return axios.get(this.config.apiUrl, {params: apiParams}).then(response => {
+      if (!response.data) throw new Error('No data received');
+      return response.data;
+    });
   }
 
   // Returns all pages of listings for the given parameters.
