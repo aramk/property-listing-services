@@ -1,6 +1,6 @@
-const ZooplaRentalService = require('../../src/ZooplaRentalService');
+const ZooplaService = require('../../src/ZooplaService');
 
-describe('ZooplaRentalService', () => {
+describe('ZooplaService', () => {
 
   let service;
 
@@ -68,7 +68,7 @@ describe('ZooplaRentalService', () => {
 });
 
 function createService() {
-  return new ZooplaRentalService({
+  return new ZooplaService({
     apiKey: process.env.ZOOPLA_API_KEY
   });
 }

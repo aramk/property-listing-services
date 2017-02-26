@@ -9,7 +9,7 @@ const ALLOWED_PARAMS = ['api_key', 'country', 'postcode', 'area', 'page_number',
     'listing_status', 'include_rented', 'order_by'];
 const MAX_PAGE_SIZE = 100;
 
-class ZooplaRentalService {
+class ZooplaService {
 
   constructor(config={}) {
     this.config = _.defaults(config, {
@@ -60,4 +60,4 @@ function getAllListings({ pageNumber=1, combinedResult={}, params } = {}) {
   });
 }
 
-module.exports = ZooplaRentalService;
+module.exports = ZooplaService;
