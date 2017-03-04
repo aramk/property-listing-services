@@ -5,7 +5,7 @@ describe('ZooplaService', () => {
   let service;
 
   beforeEach(() => {
-    service = createService();
+    service = new ZooplaService();
   });
 
   it('can be constructed', () => {
@@ -66,9 +66,3 @@ describe('ZooplaService', () => {
   });
 
 });
-
-function createService() {
-  return new ZooplaService({
-    apiKey: process.env.ZOOPLA_API_KEY
-  });
-}

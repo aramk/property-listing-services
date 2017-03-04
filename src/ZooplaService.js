@@ -4,11 +4,6 @@ const Q = require('q');
 
 const envConfig = require('./config');
 
-// Only these parameters are included in the Zoopla request.
-const ALLOWED_PARAMS = ['api_key', 'country', 'postcode', 'area', 'page_number', 'page_size',
-    'listing_status', 'include_rented', 'order_by'];
-const MAX_PAGE_SIZE = 100;
-
 class ZooplaService {
 
   constructor(config={}) {

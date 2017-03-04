@@ -15,6 +15,6 @@ The listings service uses the [Zoopla API](http://developer.zoopla.com/docs/read
 The tests rely on the [mock server](https://github.com/aramk/zoopla-api-mock). Run this as a separate process, then execute either:
 
 	npm test              # single execution
-	npm run test-watch    # re-execute on changes 
+	npm run test:watch    # re-execute on changes 
 
 If the test suite requires more data from the API, the mock server should be extended.

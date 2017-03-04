@@ -1,0 +1,65 @@
+{
+  "rental_prices": {
+    "per_week": 381,
+    "accurate": "per_month",
+    "per_month": 1650
+  },
+  "country_code": "gb",
+  "num_floors": "2",
+  "image_150_113_url": "https://li.zoocdn.com/2b0424946311a7b81ffa00bba83c0630e100f33b_150_113.jpg",
+  "listing_status": "rent",
+  "num_bedrooms": "2",
+  "image_50_38_url": "https://li.zoocdn.com/2b0424946311a7b81ffa00bba83c0630e100f33b_50_38.jpg",
+  "latitude": 51.40502,
+  "agent_address": "55 Beckenham Lane, Bromley",
+  "category": "Residential",
+  "property_type": "Detached house",
+  "letting_fees": "Tenants will need to pay the following charges before their proposed move in date:<br><br>1 Months rent in advance (unless further is negotiated)<br>A security deposit of six weeks rent<br><br>Referencing and Admin Fees: £220 Inc VAT Per Person.<br><br>The tenant will also be liable for an inventory check out at the end of the tenancy. The price of which varies with the size of the property however the average price is around £95 Inc VAT.",
+  "longitude": -0.002364,
+  "thumbnail_url": "https://li.zoocdn.com/2b0424946311a7b81ffa00bba83c0630e100f33b_80_60.jpg",
+  "description": "A two bedroom detached house in the perfect location a short stroll away from Shortlands train station offering fast & frequent services into London Victoria & London Blackfriars.Call Capital Estate Agents on to book you appointment to view.",
+  "post_town": "Bromley",
+  "details_url": "http://www.zoopla.co.uk/to-rent/details/41296981?utm_source=v1:5aSNAi3PGgfcqUG7Kupyp2H3fR8_1O_b&utm_medium=api",
+  "short_description": "A two bedroom detached house in the perfect location a short stroll away from Shortlands train station offering fast &amp; frequent services into London Victoria &amp; London Blackfriars.",
+  "outcode": "BR2",
+  "property_report_url": "http://www.zoopla.co.uk/area-report/?listing_id=41296981&z_cmp=property%20report&z_con=get%20a%20report&z_med=propinfo%20link&z_src=ios-to-rent",
+  "image_645_430_url": "https://li.zoocdn.com/2b0424946311a7b81ffa00bba83c0630e100f33b_645_430.jpg",
+  "county": "London",
+  "price": "1381",
+  "available_from_date": "2016-10-15 00:00:00",
+  "listing_id": "41296981",
+  "image_caption": "",
+  "image_80_60_url": "https://li.zoocdn.com/2b0424946311a7b81ffa00bba83c0630e100f33b_80_60.jpg",
+  "status": "to_rent",
+  "agent_name": "Capital Bromley",
+  "num_recepts": "1",
+  "country": "England",
+  "first_published_date": "2016-08-09 16:25:04",
+  "displayable_address": "Hildenlea Place, Bromley BR2",
+  "street_name": "Hildenlea Place",
+  "num_bathrooms": "1",
+  "agent_logo": "https://st.zoocdn.com/zoopla_static_agent_logo_(326213).png",
+  "price_change": [
+    {
+      "direction": "",
+      "date": "2016-08-09 16:24:05",
+      "percent": "0%",
+      "price": "392"
+    },
+    {
+      "direction": "down",
+      "date": "2016-09-14 11:20:19",
+      "percent": "-2.8%",
+      "price": "381"
+    }
+  ],
+  "agent_phone": "020 3641 1731",
+  "image_354_255_url": "https://li.zoocdn.com/2b0424946311a7b81ffa00bba83c0630e100f33b_354_255.jpg",
+  "image_url": "https://li.zoocdn.com/2b0424946311a7b81ffa00bba83c0630e100f33b_354_255.jpg",
+  "last_published_date": "2016-09-14 11:46:31",
+  "price_change_summary": {
+    "direction": "down",
+    "percent": "-2.8%",
+    "last_updated_date": "2016-09-14 11:20:19"
+  }
+}
