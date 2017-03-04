@@ -7,7 +7,7 @@
     "lint": "eslint src/**/*.js test/**/*.js",
     "coverage": "istanbul cover _mocha -- -R dot --recursive test/",
     "pretest": "npm run lint",
-    "test": "multi='mocha-osx-reporter=- spec=-' mocha './test/**/*.spec.js' --require ./test/helper.js --reporter mocha-multi",
+    "test": "multi='mocha-osx-reporter=- spec=-' mocha ./test/helper.js './test/**/*.spec.js' --reporter mocha-multi",
     "test:watch": "chokidar 'src/**/*' 'test/**/*' -c 'npm test' --initial --silent"
   },
   "author": "Aram Kocharyan <akarmenia@gmail.com>",
@@ -27,7 +27,9 @@
     "axios": "^0.15.3",
     "envobj": "^1.0.3",
     "lodash": "^4.15.0",
+    "mocha-mongoose": "^1.2.0",
     "moment": "^2.17.1",
+    "mongoose": "^4.8.5",
     "q": "^1.4.1"
   }
 }

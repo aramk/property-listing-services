@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const moment = require('moment');
+const Q = require('q');
 
 const Property = require('@aramk/property-listing-models').Property;
 const ZooplaService = require('./ZooplaService');
@@ -22,7 +23,22 @@ class PropertyService {
     this.zoopla = new ZooplaService(this.config.zoopla);
   }
 
-  importZooplaProperties(params) {
+  createZooplaProperties(params) {
+    return this.getZooplaProperties(params).then(properties => {
+      let promises = properties.map(property => {
+        return Property.findOne({
+          'property.zoopla.listingId': property.zoopla.listingId
+        }).then(existing => {
+          if (!existing) return promises.push(property.save());
+        });
+      });
+      promises = _.compact(promises);
+      // Ensure all properties are persisted and returned.
+      return Q.all(promises).then(() => properties);
+    });
+  }
+
+  getZooplaProperties(params) {
     return this.zoopla.getAllListings(params).then(listings => {
       return this.convertZooplaListings(listings);
     });

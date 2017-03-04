@@ -4,6 +4,7 @@ const PropertyService = require('../../src/PropertyService');
 const listingFixture = require('../fixtures/listing.json');
 const Property = require('@aramk/property-listing-models').Property;
 
+
 describe('PropertyService', () => {
 
   let service;
@@ -41,12 +42,25 @@ describe('PropertyService', () => {
     expect(json).to.have.deep.property('images[0].thumbnailUrl', 'https://li.zoocdn.com/2b0424946311a7b81ffa00bba83c0630e100f33b_80_60.jpg');
   });
 
-  it('can import listings', () => {
-    return service.importZooplaProperties({
+  it('can get properties from listings', () => {
+    return service.getZooplaProperties({
       postcode: 'BR2'
     }).then(properties => {
       expect(properties).to.have.length(300);
       expect(properties[0]).to.be.an.instanceOf(Property);
+    });
+  });
+
+  it('can create properties from listings', () => {
+    return service.createZooplaProperties({
+      postcode: 'BR2'
+    }).then(properties => {
+      expect(properties).to.have.length(300);
+      expect(properties[0]).to.be.an.instanceOf(Property);
+      const firstId = properties[0]._id.toString();
+      return Property.findOne({_id: firstId}).then(property => {
+        expect(property._id.toString()).to.equal(firstId);
+      });
     });
   });
 
