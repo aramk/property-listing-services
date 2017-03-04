@@ -2,6 +2,7 @@ const moment = require('moment');
 
 const PropertyService = require('../../src/PropertyService');
 const listingFixture = require('../fixtures/listing.json');
+const Property = require('@aramk/property-listing-models').Property;
 
 describe('PropertyService', () => {
 
@@ -40,12 +41,13 @@ describe('PropertyService', () => {
     expect(json).to.have.deep.property('images[0].thumbnailUrl', 'https://li.zoocdn.com/2b0424946311a7b81ffa00bba83c0630e100f33b_80_60.jpg');
   });
 
-  // it('can import listings', () => {
-  //   return service.importZooplaProperties({
-  //     postcode: 'BR2'
-  //   }).then(result => {
-  //     console.log('result', result);
-  //   });
-  // });
+  it('can import listings', () => {
+    return service.importZooplaProperties({
+      postcode: 'BR2'
+    }).then(properties => {
+      expect(properties).to.have.length(300);
+      expect(properties[0]).to.be.an.instanceOf(Property);
+    });
+  });
 
 });

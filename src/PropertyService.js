@@ -23,14 +23,14 @@ class PropertyService {
   }
 
   importZooplaProperties(params) {
-    return this.zoopla.getListings(params).then(listings => {
+    return this.zoopla.getAllListings(params).then(listings => {
       return this.convertZooplaListings(listings);
     });
   }
 
   convertZooplaListings(listings) {
-    return listings.listing.slice(0, 1).map(listing => {
-      this.convertZooplaListing(listing);
+    return listings.listing.map(listing => {
+      return this.convertZooplaListing(listing);
     });
   }
 
