@@ -23,7 +23,7 @@
     "mocha-osx-reporter": "^0.1.2"
   },
   "dependencies": {
-    "@aramk/property-listing-models": "1.0.0",
+    "@aramk/property-listing-models": "https://github.com/aramk/property-listing-models.git#master",
     "axios": "^0.15.3",
     "envobj": "^1.0.3",
     "lodash": "^4.15.0",
