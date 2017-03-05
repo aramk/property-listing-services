@@ -10,9 +10,13 @@ The listings service uses the [Zoopla API](http://developer.zoopla.com/docs/read
 
 	export ZOOPLA_API_KEY=<key>
 
+### Dependencies
+
+See [aramk/property-listing-models](https://github.com/aramk/property-listing-models) for instructions on setting up the data layer. For local development, it's best to link this package with `npm link`.
+
 ## Tests
 
-The tests rely on the [mock server](https://github.com/aramk/zoopla-api-mock). Run this as a separate process, then execute either:
+The tests rely on [aramk/zoopla-api-mock](https://github.com/aramk/zoopla-api-mock). Run this as a separate process, then execute either of these:
 
 	npm test              # single execution
 	npm run test:watch    # re-execute on changes 
