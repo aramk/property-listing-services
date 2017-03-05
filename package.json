@@ -7,7 +7,7 @@
     "lint": "eslint src/**/*.js test/**/*.js",
     "coverage": "istanbul cover _mocha -- -R dot --recursive test/",
     "pretest": "npm run lint",
-    "test": "multi='mocha-osx-reporter=- spec=-' mocha ./test/helper.js './test/**/*.spec.js' --reporter mocha-multi",
+    "test": "multi='mocha-osx-reporter=- spec=-' mocha ./test/helper.js ./test/**/*.spec.js --reporter mocha-multi",
     "test:watch": "chokidar 'src/**/*' 'test/**/*' -c 'npm test' --initial --silent"
   },
   "author": "Aram Kocharyan <akarmenia@gmail.com>",
